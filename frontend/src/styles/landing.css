@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+
+
+.landing__container {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url(../assets/images/Screenshot\ \(176\).png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+}
+
+.logo__container {
+    /* border: 2px solid red; */
+    height: auto;
+    width: auto;
+    margin-top: 0.5rem;
+}
+
+.logo {
+    /* border: 2px solid red; */
+    padding: 0;
+    height: 4rem;
+}
+
+.main__container {
+    /* border: 2px solid red; */
+    margin-top: 1.2rem;
+
+}
+
+/* .animation {
+    border: 2px solid red;
+}
+
+.landing__text {
+    border: 2px solid red;
+} */
+
+.subtitle {
+    margin-top: 4rem;
+    width: 100%;
+    color: black;
+    font-weight: bolder;
+    letter-spacing: 0.3rem;
+}
+
+.sub_subtitle {
+    /* width: 45vw; */
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+}
+
+.animation {
+
+    /* border: 2px solid red; */
+    height: 100%;
+
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+
+    .animation {
+        margin-top: 4rem;
+
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 576px) {}
+
+/* For small devices */
+@media screen and (max-width: 350px) {}
