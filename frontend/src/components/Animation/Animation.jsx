@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../../assets/svgs/Animation - 1700224007211.json';
-import './animation.css'
 
 const Animation = () => {
     const lottieRef = useRef(null);

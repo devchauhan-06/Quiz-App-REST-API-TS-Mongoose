@@ -26,19 +26,6 @@
     height: 4rem;
 }
 
-.main__container {
-    /* border: 2px solid red; */
-    margin-top: 1.2rem;
-
-}
-
-/* .animation {
-    border: 2px solid red;
-}
-
-.landing__text {
-    border: 2px solid red;
-} */
 
 .subtitle {
     margin-top: 4rem;
@@ -68,15 +55,59 @@
 @media screen and (max-width: 992px) {
 
     .animation {
-        margin-top: 4rem;
+        margin-top: 5rem;
 
     }
+
+    .subtitle {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
 }
 
 /* For medium devices */
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 826px) {
 
-@media screen and (max-width: 576px) {}
+    .logo {
+        height: 60px;
+    }
+
+    .subtitle {
+        margin-top: 40px;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+    }
+
+    .sub_subtitle {
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        line-height: 1.8rem;
+    }
+
+}
 
 /* For small devices */
-@media screen and (max-width: 350px) {}
+@media screen and (max-width: 376px) {
+    .logo {
+        height: 45px;
+    }
+
+    .subtitle {
+        margin-top: 30px;
+        letter-spacing: 0.2rem;
+        font-size:larger;
+        font-weight: 700;
+        line-height: 1.6rem;
+    }
+
+    .sub_subtitle {
+        line-height: 1.6rem;
+        font-size:200;
+        font-weight: 300;
+    }
+
+    /* .animation{
+        display: none;
+    } */
+}

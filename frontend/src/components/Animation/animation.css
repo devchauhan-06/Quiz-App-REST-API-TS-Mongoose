@@ -1,7 +1,0 @@
-/* For medium devices */
-@media screen and (max-width: 768px) {
-    .animation {
-        display: none;
-
-    }
-}
