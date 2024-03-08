@@ -15,9 +15,7 @@ import FormInput from '../components/FormInput/FormInput'
 const Register = () => {
 
     const dispatch = useDispatch();
-    const [signUpValues, setSignUpValues] = useState({ name: '', email: '', password: '', confirmPassword: '' });
-    const [logInValues, setLogInValues] = useState({ email: '', password: '' });
-
+    
     const formikSignUp =
         useFormik({
             initialValues: {
@@ -103,9 +101,9 @@ const Register = () => {
     return (
         <>
             <div className="wrapper container-fluid" onClick={() => handleClick()}>
-                <div className="row">
+                <div className="row background__container">
                     <div className="col-7"></div>
-                    <div className="col-5 mt-5 pt-4"><Animation /></div>
+                    <div className="col-5 mt-5 pt-4 register__animation"><Animation /></div>
                 </div>
 
             </div>
