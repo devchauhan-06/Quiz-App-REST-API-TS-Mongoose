@@ -9,8 +9,8 @@
 
 
 .otp__modal__container {
-    min-height: 35vw;
-    min-width: 70vw;
+    height: 450px;
+    width: 850px;
     /* background-color: rgb(254, 255, 255); */
     background-image: url(../assets/images/Screenshot\ 2024-02-13\ 225256.png);
     background-size: cover;
@@ -44,7 +44,7 @@
 }
 
 .otp__title {
-    margin-top: 12%;
+    margin-top: 10%;
     width: 100%;
     color: black;
     font-weight: bolder;
@@ -71,4 +71,91 @@
     font-size: large;
     letter-spacing: 0.1rem;
     cursor: pointer;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+
+    .otp__title {
+        margin-top: 4%;
+        font-size: 50px;
+    }
+
+    .otp__subtitle {
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+
+    .otp__modal__container {
+        height: 400px;
+    }
+
+}
+
+/* For medium devices */
+@media screen and (max-width: 790px) {
+
+    .otp__title {
+        margin-top: 4%;
+        font-size: 45px;
+    }
+
+    .otp__subtitle {
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+
+    .otpInput {
+        width: 55px;
+        height: 55px;
+        text-align: center;
+        font-size: larger;
+        margin: 5px;
+    }
+
+    .otp__modal__container {
+        height: 350px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+
+    .otp__modal__container {
+        height: 300px;
+    }
+
+    .otp__title {
+        font-size: 40px;
+    }
+
+    .otp__subtitle {
+        font-weight: 400;
+        margin-top: 1%;
+        margin-bottom: 4%;
+    }
+
+    .otpInput {
+        width: 52px;
+        height: 52px;
+        margin: 5px;
+    }
+
+}
+
+/* For small devices */
+@media screen and (max-width: 420px) {
+    .otp__modal__container {
+        height: 250px;
+    }
+
+    .otp__title {
+        font-size: 35px;
+    }
+    .otpInput {
+        width: 49px;
+        height: 49px;
+        margin: 4px;
+    }
 }
