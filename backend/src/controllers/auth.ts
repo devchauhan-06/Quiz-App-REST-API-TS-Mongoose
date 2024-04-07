@@ -38,34 +38,34 @@ const registerUser: RequestHandler = async (req, res, next) => {
       const checkUserExits = await User.findOne({ email });
       // if User present in databse then only update the data 
       if (checkUserExits) {
-           // update data
-           checkUserExits.name = name;
-           checkUserExits.password = password;
-           await checkUserExits.save()
-           resp = {
-              status: "success",
-              message: "OTP has sent on your email. Please Verify..",
-              // data: { userId: checkUserExits._id, token:token },
-             data: { email, token: token },
-          };
-          res.status(201).send(resp);
+        // update data
+        checkUserExits.name = name;
+        checkUserExits.password = password;
+        await checkUserExits.save()
+        resp = {
+          status: "success",
+          message: "OTP has sent on your email. Please Verify..",
+          // data: { userId: checkUserExits._id, token:token },
+          data: { email, token: token },
+        };
+        res.status(201).send(resp);
       }
       else {
         // if user does not present in Databse then create a new entry 
-            const user = new User({ email, name, password });
-            const result = await user.save();
-             if (!result) {
-                resp = { status: "error", message: "No result found", data: {} };
-                res.status(404).send(resp);
-             }
-             else {
-                 resp = {
-                 status: "success",
-                   message: "OTP has sent on your email. Please Verify",
-                  data: { email,token:token },
-              };
-              res.status(201).send(resp);
-         }
+        const user = new User({ email, name, password });
+        const result = await user.save();
+        if (!result) {
+          resp = { status: "error", message: "No result found", data: {} };
+          res.status(404).send(resp);
+        }
+        else {
+          resp = {
+            status: "success",
+            message: "OTP has sent on your email. Please Verify",
+            data: { email, token: token },
+          };
+          res.status(201).send(resp);
+        }
       }
     }
     else {
@@ -124,11 +124,11 @@ const loginUser: RequestHandler = async (req, res, next) => {
         throw err;
       }
     }
-    
-    if(status && !user?.accountBlocked && user?.remainingTry < 1 ){
+
+    if (status && !user?.accountBlocked && user?.remainingTry < 1) {
       const err = new ProjectError('Your account is deactivated');
-        err.statusCode = 401;
-        throw err;
+      err.statusCode = 401;
+      throw err;
     }
 
     if (status && !user?.accountBlocked) {
@@ -265,7 +265,7 @@ const generateEmail = async (name: string, temperoryKey: string, emailaddress: s
 
   transporter.sendMail(message).then(() => {
 
-  }).catch(error => async () =>{
+  }).catch(error => async () => {
     let user = await User.findOne({ email: emailaddress }); //If there is some issue in generating email set the temperory key string in collection to empty
     user && (user.temperoryKey = '');
     await user?.save();
@@ -414,7 +414,7 @@ const forgotPassword: RequestHandler = async (req, res, next) => {
 
     const message = `
     Click on the below link to reset the password of your account:
-    http://${process.env.BASE_URL}/auth/forgotpassword/${emailToken}
+    http://localhost:${process.env.PORT}/auth/forgotpassword/${emailToken}
     
     (Note: If the link is not clickable kindly copy the link and paste it in the browser.)`;
     sendEmail(user.email, "Verify Email", message);
@@ -447,8 +447,8 @@ const forgotPasswordCallback: RequestHandler = async (req, res, next) => {
 
     const userId = decodedToken.userId;
 
-    // const redirectLink = `http://${process.env.BASE_URL}/auth/forgotpassword/${userId}`;
-    // res.redirect(redirectLink);
+     const redirectLink = `http://${process.env.BASE_URL}/auth/forgotpassword/${userId}`;
+     res.redirect(redirectLink);
     console.log(`http://${process.env.BASE_URL}/auth/forgotpassword/${userId}`);
 
   } catch (error) {
@@ -456,7 +456,7 @@ const forgotPasswordCallback: RequestHandler = async (req, res, next) => {
   }
 };
 
-const resetPassword: RequestHandler = async(req, res, next) => {
+const resetPassword: RequestHandler = async (req, res, next) => {
   let resp: ReturnResponse;
   try {
 
@@ -473,7 +473,7 @@ const resetPassword: RequestHandler = async(req, res, next) => {
     const confirmPassword = req.body.confirmPassword;
 
     // checking if password and confirmpassword are the same
-    const isPasswordMatching = await bcrypt.compare(confirmPassword,password);
+    const isPasswordMatching = await bcrypt.compare(confirmPassword, password);
     if (!isPasswordMatching) {
       const err = new ProjectError(
         "New password does not match. Enter new password again "
@@ -606,12 +606,12 @@ const verifyRegistrationOTP: RequestHandler = async (req, res, next) => {
     // update data verified true 
     user.isVerified = true;
     const result = await user.save();
-    resp = { status: "success", message: "Registration Done !!", data: { userId : user._id,email } };
+    resp = { status: "success", message: "Registration Done !!", data: { userId: user._id, email } };
     res.status(200).send(resp);
   } catch (error) {
     console.log("Error in verify Registration OTP : ", error);
     next(error);
-   }
+  }
 }
 
 

@@ -26,3 +26,15 @@ export const resendRegistrationOtp = (token) => axios.get(baseUrl + `/auth/resen
     }
 })
 
+
+export const forgotPassword = (userDetails) => axios.post(baseUrl + `/auth/forgotpassword`, userDetails, {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+
+export const changePassword = (userDetails, userId) => axios.post(baseUrl + `/auth/forgotpassword/` + userId, userDetails, {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})

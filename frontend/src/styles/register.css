@@ -62,7 +62,7 @@
 }
 
 .wrapper_modal.active .form.login {
-    bottom: -18%;
+    bottom: -13%;
     border-radius: 35%;
     height: 100%;
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
@@ -96,7 +96,7 @@
     margin-top: 40px;
 }
 
-form input {
+.form input {
     height: 60px;
     width: 22vw;
     outline: none;
@@ -132,7 +132,7 @@ form input {
     color: black;
 }
 
-form input[type="submit"] {
+.form input[type="submit"] {
     margin-top: 15px;
     padding: none;
     font-size: 18px;

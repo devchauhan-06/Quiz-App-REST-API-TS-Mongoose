@@ -15,7 +15,7 @@ import FormInput from '../components/FormInput/FormInput'
 const Register = () => {
 
     const dispatch = useDispatch();
-    
+
     const formikSignUp =
         useFormik({
             initialValues: {
@@ -66,7 +66,7 @@ const Register = () => {
                             console.log(res.data.status)
                             if (res.data.status === 'success') {
                                 dispatch(addToken(res.data.data.token))
-                                navigate("/verifyOtp");
+                                navigate("/verifyotp");
                                 action.resetForm();
                             }
                         }),
@@ -81,6 +81,10 @@ const Register = () => {
                 }
             },
         });
+
+        const handleForgotPasswordClick = () =>{
+            navigate("/auth/forgotpassword")
+        }
 
     const [isActive, setIsActive] = useState(false);
 
@@ -190,9 +194,9 @@ const Register = () => {
                             error={formikLogIn.errors.password}
                             touched={formikLogIn.touched.password}
                         />
-                        <div className='forgotPassword'>Forgot password?</div>
+                        <div className='forgotPassword' onClick={handleForgotPasswordClick}>Forgot password?</div>
                         <input type="submit" value="Login" />
-                        
+
                     </form>
                 </div>
 
