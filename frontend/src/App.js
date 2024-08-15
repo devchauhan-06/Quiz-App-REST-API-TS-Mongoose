@@ -7,6 +7,7 @@ import Otp from './pages/Otp';
 import ForgotPassword from './pages/ForgotPassword';
 import ChangePassword from './pages/ChangePassword';
 import { ToastContainer } from 'react-toastify'
+import Navbar from './pages/Navbar';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/verifyotp" element={<Otp />}></Route>
         <Route path="/auth/forgotpassword" element={<ForgotPassword />}></Route>
         <Route path="/auth/forgotpassword/:userId" element={<ChangePassword />}></Route>
+        <Route path="/navbar" element={<Navbar />}></Route>
       </Routes>
 
       <ToastContainer />
